@@ -2,7 +2,7 @@
 
 /* General Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #121212;
     color: white;
     margin: 0;
@@ -12,7 +12,9 @@ body {
 
 /* Sidebar Navigation */
 .sidebar {
-    width: 250px;
+    min-width: 200px;
+    width: 15%;
+    max-width: 250px;
     height: 100vh;
     background-color: #000;
     padding: 20px;
@@ -24,7 +26,8 @@ body {
 }
 
 .logo img {
-    width: 150px;
+    width: 100%;
+    max-width: 150px;
     margin-bottom: 20px;
 }
 
@@ -43,17 +46,23 @@ body {
     font-size: 16px;
     display: flex;
     align-items: center;
+    transition: color 0.3s ease-in-out;
 }
 
 .sidebar ul li a i {
     margin-right: 10px;
 }
 
+.sidebar ul li a:hover {
+    color: #1DB954;
+}
+
 /* Main Content */
 .main-content {
-    margin-left: 250px;
+    margin-left: 15%;
     padding: 20px;
     flex-grow: 1;
+    transition: margin-left 0.3s ease-in-out;
 }
 
 .header {
@@ -70,6 +79,11 @@ body {
     font-size: 20px;
     cursor: pointer;
     margin-right: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-button:hover {
+    transform: scale(1.1);
 }
 
 .user-profile {
@@ -85,12 +99,14 @@ body {
     margin-right: 10px;
 }
 
+/* Section Titles */
 .section-title {
     margin-top: 20px;
     font-size: 22px;
+    font-weight: bold;
 }
 
-/* Playlists Grid */
+/* Playlist Grid */
 .playlist-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -120,13 +136,14 @@ body {
 .music-player {
     position: fixed;
     bottom: 0;
-    left: 250px;
-    width: calc(100% - 250px);
+    left: 15%;
+    width: calc(100% - 15%);
     background-color: #181818;
     padding: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: left 0.3s ease-in-out;
 }
 
 .song-info {
@@ -164,6 +181,11 @@ body {
     color: white;
     font-size: 18px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.player-controls button:hover {
+    transform: scale(1.1);
 }
 
 .play-btn {
@@ -179,6 +201,7 @@ body {
 
 .progress-bar input {
     width: 200px;
+    cursor: pointer;
 }
 
 /* Volume Control */
@@ -190,6 +213,32 @@ body {
 
 .volume-control input {
     width: 100px;
+    cursor: pointer;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+        padding: 10px;
+    }
+
+    .sidebar ul li a {
+        font-size: 14px;
+    }
+
+    .sidebar ul li a i {
+        margin-right: 5px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    .music-player {
+        left: 60px;
+        width: calc(100% - 60px);
+    }
 }
 
 /* ======================== */
@@ -333,4 +382,35 @@ body {
 
 .remember-me label:hover {
     color: #1ed760;
+}
+
+.flash-messages {
+    position: fixed;
+    top: 10px;
+    right: -30px;
+    width: auto;
+    z-index: 1000;
+}
+
+.alert {
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.alert-success {
+    background-color: #1DB954; /* Spotify Green */
+    color: white;
+}
+
+.alert-danger {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.alert-info {
+    background-color: #17a2b8;
+    color: white;
 }
